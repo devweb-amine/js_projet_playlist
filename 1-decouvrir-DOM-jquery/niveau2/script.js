@@ -1,21 +1,39 @@
+
 var listOfMovie = [];
 
-$(document).ready(function(){
+$(document).ready(function()
+{  
+   $('button').click(function()
+   {   
+      film = $.get('./playlist.txt', function(data)
+       {  
+         var datasplited = (data.split('\n')) ;
+
+         $.each(datasplited , function(index, value)
 
 
-// completer le code ici
+           { 
+             var monElementHTML = htmlDivElement(value);
+             $('#list').append(monElementHTML);
 
-  
 
+
+           });
+
+        });
+   });
 });
 
 
+
 function htmlDivElement(name){
-// completer le code ici
+
+    return "<div class= 'divfilm'>"+name+"</div>";
+
 }
  
 function splitFile(data){
 
-// completer le code ici
+return data.split('\n') ;
 }
 
